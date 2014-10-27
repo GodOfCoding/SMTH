@@ -72,6 +72,7 @@ public:
 		}
         return false;
     };
+<<<<<<< HEAD:1.c
 	void print(){
 		printf("+%s-%s-%s\t%s\n", num0, num2, num3, value);
 	};
@@ -277,3 +278,5 @@ int main(){
 	
 	return 0;
 }
+=======
+>>>>>>> origin/master:1.cpp
