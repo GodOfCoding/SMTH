@@ -3,7 +3,6 @@
 #include <cstdio>
 #include <time.h>
 #include <string.h>
-
 using namespace std;
 
 class VectorElem{
@@ -20,59 +19,68 @@ public:
 		this -> num3 = NULL;
 		this -> value = NULL;
 	};
-    bool operator < (const VectorElem &elem) const{
+	bool operator < (const VectorElem &elem) const{
+		int status0;
 		int status1;
 		int status2;
-		int status3;
-		for(int i = 6; i >= 0;  i--){
-			if(num3[i] - '0' < elem.num3[i] - '0'){
-				status3 = 1;
-			}
-			else if(num3[i] - '0' == elem.num3[i] - '0'){
-				status3 = 3;
+		for(int i = 6; i >= 1;  i--){
+			if(this->num3[i] < elem.num3[i] ){
+				status0 = -1;
 			}
 			else {
-				status3 = 0;
+				if(this->num3[i]  >  elem.num3[i] ){
+					status0 = 1;
+				}
+			
+			else {
+				if (status0 == 0){
+					status0 = 0;
+				}
+			}
 			}
 		}
 		for(int i = 2; i >= 0;  i--){
-			if(num2[i] - '0' < elem.num2[i] - '0'){
-				status2 = 1;
-			}
-			else if(num2[i] - '0' == elem.num2[i] - '0'){
-				status2 = 3;
+			if(this->num2[i]  < elem.num2[i] ){
+				status1 = -1;
 			}
 			else {
+				if(this->num2[i] > elem.num2[i] ){
+					status1 = 1;
+				}
+			
+			else {
+				if(status1 == 0) {
+					status1 = 0;
+				}
+			}
+			}
+		}
+		for(int i = 2; i >= 0;  i--){
+			if(this->num1[i] < elem.num1[i] ){
+				status2 = -1;
+			}
+			else if(this->num1[i] > elem.num1[i] ){
 				status2 = 0;
 			}
-		}
-		for(int i = 2; i >= 0;  i--){
-			if(num1[i] - '0' < elem.num1[i] - '0'){
-				status1 = 1;
-			}
-			else if(num1[i] - '0' == elem.num1[i] - '0'){
-				status1 = 3;
-			}
 			else {
-				status1 = 0;
+				status2 = 1;
 			}
 		}
-		if(status1 == 1){
+		if(status2 == -1){
 			return true;
 		}
-		if(status1 == 3){
-			if(status2 == 1 ){
+		if(status2 == 0){
+			if(status2 == -1 ){
 				return true;
 			}
-			if(status2 == 3){
-				if(status3 == 1){
+			if(status2 == 0){
+				if(status0 == -1){
 					return true;
 				}
 			}
 		}
-        return false;
-    };
-<<<<<<< HEAD:1.c
+		return false;
+	};
 	void print(){
 		printf("+%s-%s-%s\t%s\n", num0, num2, num3, value);
 	};
@@ -278,5 +286,3 @@ int main(){
 	
 	return 0;
 }
-=======
->>>>>>> origin/master:1.cpp
