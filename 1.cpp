@@ -23,7 +23,7 @@ public:
 		int status0;
 		int status1;
 		int status2;
-		for(int i = 6; i >= 1;  i--){
+		for(int i = 6; i >= 0;  --i){
 			if(this->num3[i] < elem.num3[i] ){
 				status0 = -1;
 			}
@@ -39,7 +39,7 @@ public:
 			}
 			}
 		}
-		for(int i = 2; i >= 0;  i--){
+		for(int i = 2; i >= 0;  --i){
 			if(this->num2[i]  < elem.num2[i] ){
 				status1 = -1;
 			}
@@ -55,25 +55,30 @@ public:
 			}
 			}
 		}
-		for(int i = 2; i >= 0;  i--){
-			if(this->num1[i] < elem.num1[i] ){
+		for(int i = 2; i >= 0;  --i){
+			if(this->num1[i]  < elem.num1[i] ){
 				status2 = -1;
 			}
-			else if(this->num1[i] > elem.num1[i] ){
-				status2 = 0;
-			}
 			else {
-				status2 = 1;
+				if(this->num1[i] > elem.num1[i] ){
+					status2 = 1;
+				}
+			
+			else {
+				if(status1 == 0) {
+					status2 = 0;
+				}
+			}
 			}
 		}
 		if(status2 == -1){
 			return true;
 		}
 		if(status2 == 0){
-			if(status2 == -1 ){
+			if(status1 == -1 ){
 				return true;
 			}
-			if(status2 == 0){
+			if(status1 == 0){
 				if(status0 == -1){
 					return true;
 				}
