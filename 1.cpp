@@ -3,7 +3,6 @@
 #include <cstdio>
 #include <time.h>
 #include <string.h>
-asdfsgsdfdfsfds
 using namespace std;
 
 class VectorElem{
@@ -32,11 +31,12 @@ public:
 				if(this->num3[i]  >  elem.num3[i] ){
 					status0 = 1;
 				}
-			}
+			
 			else {
 				if (status0 == 0){
 					status0 = 0;
 				}
+			}
 			}
 		}
 		for(int i = 2; i >= 0;  i--){
@@ -47,11 +47,12 @@ public:
 				if(this->num2[i] > elem.num2[i] ){
 					status1 = 1;
 				}
-			}
+			
 			else {
 				if(status1 == 0) {
 					status1 = 0;
 				}
+			}
 			}
 		}
 		for(int i = 2; i >= 0;  i--){
@@ -65,10 +66,10 @@ public:
 				status2 = 1;
 			}
 		}
-		if(status3 == -1){
+		if(status2 == -1){
 			return true;
 		}
-		if(status3 == 0){
+		if(status2 == 0){
 			if(status2 == -1 ){
 				return true;
 			}
@@ -80,7 +81,6 @@ public:
 		}
 		return false;
 	};
-<<<<<<< HEAD:1.c
 	void print(){
 		printf("+%s-%s-%s\t%s\n", num0, num2, num3, value);
 	};
@@ -286,5 +286,3 @@ int main(){
 	
 	return 0;
 }
-=======
->>>>>>> origin/master:1.cpp
